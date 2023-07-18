@@ -2,6 +2,7 @@
 <section name="Workbench">
 	<section name="MavenProjectImportWizardPage">
 		<list key="rootDirectory">
+			<item value="C:\Users\beatr\Documents\ESTUDOS\JAVA\projeto-springJava\AnimesCut\animescut"/>
 			<item value="C:\Users\beatr\Documents\ESTUDOS\projeto-springJava\AnimesCut\animescut"/>
 		</list>
 		<list key="projectNameTemplate">
