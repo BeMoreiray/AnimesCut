@@ -17,7 +17,7 @@ public class AnimesService {
 	@Autowired
 	AnimesRepository repository;
 	
-	public boolean isValidID(Long id) {
+	/*public boolean isValidID(Long id) {
 		return repository.findById(id).isPresent();
 	}
 	
@@ -25,5 +25,5 @@ public class AnimesService {
 	public Animes findById(@PathVariable Long id) {
 		return repository.findById(id).orElseThrow(() -> new NoSuchElementException("Anime não encontrado com id: " + id));	
 		
-	}
+	}*/
 }

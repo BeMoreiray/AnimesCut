@@ -3,37 +3,49 @@ package com.projects.animescut.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.server.ResponseStatusException;
 
 import com.projects.animescut.entities.Animes;
 import com.projects.animescut.repositories.AnimesRepository;
-import com.projects.animescut.services.AnimesService;
+
 
 @RestController
+@RequestMapping(value = "/animes")
 public class AnimesController {
 	
 	
 	@Autowired 
-	private AnimesService service;
+	//private AnimesService service;
 	private AnimesRepository repository;
+	Animes result;
 	 
-	@GetMapping(value = "/animes")
+	@GetMapping
 	public List<Animes> getAllAnimes(){
 		return repository.findAll();
 	}
 	
-	@GetMapping(value = "/animes/{id}")
+	@GetMapping(value = "/{id}")
 	public Animes getAnimesById(@PathVariable Long id) {
-		if(!service.isValidID(id)) {
+		
+		result = repository.findById(id).get();
+		return result;
+		
+		/*if(!service.isValidID(id)) {
 			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "ID de jogo inválido: " + id);
 		}
 		
 		Animes result =  service.findById(id);
+		return result;*/
+	}
+	
+	@PostMapping
+	public Animes insertAnimes(@RequestBody Animes anime) {
+		result = repository.save(anime);
 		return result;
 	}
 		
