@@ -1,11 +1,9 @@
 package com.projects.animescut.services;
 
-import java.util.NoSuchElementException;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.bind.annotation.PathVariable;
 
 import com.projects.animescut.entities.Animes;
 import com.projects.animescut.repositories.AnimesRepository;
@@ -17,13 +15,23 @@ public class AnimesService {
 	@Autowired
 	AnimesRepository repository;
 	
-	/*public boolean isValidID(Long id) {
-		return repository.findById(id).isPresent();
+	
+	public List<Animes> findAll() {
+		List<Animes> result =  repository.findAll();
+		return result;
 	}
 	
-	@Transactional(readOnly = true)
-	public Animes findById(@PathVariable Long id) {
-		return repository.findById(id).orElseThrow(() -> new NoSuchElementException("Anime não encontrado com id: " + id));	
+	public Animes findById(Long id) {
+		Animes result = repository.findById(id).get();
+		return result;
 		
-	}*/
+	}
+	
+	public Animes insertNewObject(Animes anime) {
+		Animes result = repository.save(anime);
+		return result;
+	}
+	
+	
+	
 }
