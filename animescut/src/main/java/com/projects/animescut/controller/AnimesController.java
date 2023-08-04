@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -45,22 +46,21 @@ public class AnimesController {
 	}
 	
 	@PutMapping("/{id}")
-	public ResponseEntity<Object> saveUpdate(@PathVariable Long id, @RequestBody Animes updateAnime) {
+	public ResponseEntity<Object> saveUpdate(@PathVariable Long id, @RequestBody Animes updatedAnime) {
 		Animes anime = service.findById(id);
 		if(anime == null) {
 			return ResponseEntity.notFound().build();
 		}
 		
-		anime.setTitle(updateAnime.getTitle());
-		anime.setLink(updateAnime.getLink());
-		anime.setReleaseYear(updateAnime.getReleaseYear());
-		anime.setDescription(updateAnime.getDescription());
-		anime.setStudio(updateAnime.getStudio());
-		anime.setCreator(updateAnime.getCreator());
+		// Atualiza o anime com os valores fornecidos pelo objeto updateAnime
+		anime.setTitle(updatedAnime.getTitle());
+		anime.setLink(updatedAnime.getLink());
+		anime.setReleaseYear(updatedAnime.getReleaseYear());
+		anime.setDescription(updatedAnime.getDescription());
+		anime.setStudio(updatedAnime.getStudio());
+		anime.setCreator(updatedAnime.getCreator());
 		
-		Animes result = service.updateAnimes(id, anime.getTitle(), 
-				anime.getLink(), anime.getReleaseYear(), anime.getDescription(), 
-				anime.getStudio(), anime.getCreator());
+		Animes result = service.updateAnimes(id, anime);
 		
         if (result != null) {
             return ResponseEntity.ok(result);
@@ -68,6 +68,17 @@ public class AnimesController {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Erro ao atualizar o anime");
         }
 
+	}
+	
+	@DeleteMapping("/{id}")
+	public ResponseEntity<String> deleteAnimes(@PathVariable Long id){
+		boolean deleted = service.deleteAnimesById(id);
+		
+		if(deleted) {
+			return ResponseEntity.ok("Anime excluído com sucesso.");
+		}else {
+			return ResponseEntity.notFound().build();
+		}
 	}
 	
 	

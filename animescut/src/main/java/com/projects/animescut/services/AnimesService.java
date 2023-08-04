@@ -35,20 +35,32 @@ public class AnimesService {
 	}
 	
 	@Transactional
-	public Animes updateAnimes(Long id, String title, String link, int releaseYear, String description, String studio, String creator) {
+	public Animes updateAnimes(Long id, Animes anime) {
 		Animes result = repository.findById(id).orElse(null);
 		if(result != null) {
-			result.setTitle(title);
-			result.setLink(link);
-			result.setReleaseYear(releaseYear);
-			result.setDescription(description);
-			result.setStudio(studio);
-			result.setCreator(creator);
+			result.setTitle(anime.getTitle());
+			result.setLink(anime.getLink());
+			result.setReleaseYear(anime.getReleaseYear());
+			result.setDescription(anime.getDescription());
+			result.setStudio(anime.getStudio());
+			result.setCreator(anime.getCreator());
 			
 			return repository.save(result);
 			
 		}
 		return null;
+	}
+	
+	@Transactional
+	public boolean deleteAnimesById(Long id) {
+		Animes result = findById(id);
+		
+		if(result != null) {
+			repository.delete(result);
+			return true;
+		}
+		return false;
+		
 	}
 	
 	
