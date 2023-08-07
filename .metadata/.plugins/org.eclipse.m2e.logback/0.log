@@ -1651,3 +1651,5 @@ Caused by: java.lang.Exception: File not found: C:\Users\beatr\Documents\ESTUDOS
 2023-08-04 20:26:00,072 [Worker-27: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
 2023-08-04 20:26:00,073 [Worker-27: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
 2023-08-04 20:26:00,076 [Worker-27: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2023-08-04 20:26:00,085 [Worker-27: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2023-08-04 20:26:00,085 [Worker-27: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\beatr\Documents\ESTUDOS\JAVA\projeto-springJava\AnimesCut\animescut\src\test\resources
