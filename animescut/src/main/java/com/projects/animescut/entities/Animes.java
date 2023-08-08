@@ -6,6 +6,8 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
 @Entity
 @Table(name="tb_animes")
@@ -13,13 +15,19 @@ public class Animes {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	@NotBlank(message="Titulo obrigatório")
 	private String title;
+	@NotBlank(message="Link obrigatório")
 	private String link;
 	@Column(name = "release_year")
+	@NotNull
 	private int releaseYear;
 	@Column(columnDefinition = "TEXT")
-	private String description;  
+	@NotBlank(message="Descrição obrigatória")
+	private String description;
+	@NotBlank(message="Studio obrigatório")
 	private String studio;
+	@NotBlank(message="Criador obrigatório")
 	private String creator;
 	
 	public Animes() {
