@@ -1,13 +1,10 @@
 package com.projects.animescut.controller;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.validation.BindingResult;
-import org.springframework.validation.ObjectError;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -26,7 +23,7 @@ import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping(value = "/animes")
-@Validated
+@Validated 
 public class AnimesController {
 	
 	
@@ -34,17 +31,9 @@ public class AnimesController {
 	private AnimesService service;
 	Animes result;
 	
-	//Método auxiliar para executar a validação e obrigatoriedade de campos da classe Animes
-	/*public ResponseEntity<Object> handleValidationErrors(BindingResult bindingResult){
-		if (bindingResult.hasErrors()) {
-            List<String> erros = bindingResult.getAllErrors().stream()
-                    .map(ObjectError::getDefaultMessage)
-                    .collect(Collectors.toList());
-            return ResponseEntity.badRequest().body(erros);
-        }
-        return null; 
-    
-	}*/
+	//Método auxiliar para tratemento de erro da validação e obrigatoriedade dos campos do objeto Animes
+	
+	/*--------------------------------------------------------------------------------*/
 	 
 	@GetMapping
 	public List<Animes> getAllAnimes(){
@@ -59,13 +48,13 @@ public class AnimesController {
 	}
 	
 	@PostMapping
-	public Animes saveAnimes(@Valid @RequestBody Animes anime,  BindingResult bindingResult) { 
+	public Animes insertAnimes(@Valid @RequestBody Animes anime) { 
 		result = service.insertNewObject(anime);
 		return result;
 	}
 	
 	@PutMapping("/{id}")
-	public ResponseEntity<Object> saveUpdate(@PathVariable Long id, @RequestBody Animes updatedAnime) {
+	public ResponseEntity<Object> updateAnimes(@Valid @PathVariable Long id, @RequestBody Animes updatedAnime) {
 		Animes anime = service.findById(id);
 		if(anime == null) {
 			return ResponseEntity.notFound().build();
@@ -99,6 +88,8 @@ public class AnimesController {
 			return ResponseEntity.notFound().build();
 		}
 	}
+	
+	
 	
 	
 }
