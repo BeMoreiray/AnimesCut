@@ -1,6 +1,7 @@
 package com.projects.animescut.services;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -24,8 +25,12 @@ public class AnimesService {
 	}
 	
 	public Animes findById(Long id) {
-		Animes result = repository.findById(id).get();
-		return result;
+		Optional<Animes> optionalAnime = repository.findById(id);
+		if(optionalAnime.isPresent()) {
+			 return optionalAnime.get() ;
+		}else {
+            throw new ResourceNotFoundException("Anime não encontrado com o ID: " + id);
+        }
 		
 	}
 	

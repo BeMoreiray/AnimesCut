@@ -28,12 +28,9 @@ public class AnimesController {
 	
 	
 	@Autowired 
-	private AnimesService service;
+	AnimesService service;
 	Animes result;
 	
-	//Método auxiliar para tratemento de erro da validação e obrigatoriedade dos campos do objeto Animes
-	
-	/*--------------------------------------------------------------------------------*/
 	 
 	@GetMapping
 	public List<Animes> getAllAnimes(){
@@ -54,7 +51,7 @@ public class AnimesController {
 	}
 	
 	@PutMapping("/{id}")
-	public ResponseEntity<Object> updateAnimes(@Valid @PathVariable Long id, @RequestBody Animes updatedAnime) {
+	public ResponseEntity<Object> updateAnimes(@PathVariable Long id, @RequestBody Animes updatedAnime) {
 		Animes anime = service.findById(id);
 		if(anime == null) {
 			return ResponseEntity.notFound().build();
@@ -68,7 +65,7 @@ public class AnimesController {
 		anime.setStudio(updatedAnime.getStudio());
 		anime.setCreator(updatedAnime.getCreator());
 		
-		Animes result = service.updateAnimes(id, anime);
+		 result = service.updateAnimes(id, anime);
 		
         if (result != null) {
             return ResponseEntity.ok(result);
@@ -81,7 +78,6 @@ public class AnimesController {
 	@DeleteMapping("/{id}")
 	public ResponseEntity<String> deleteAnimes(@PathVariable Long id){
 		boolean deleted = service.deleteAnimesById(id);
-		
 		if(deleted) {
 			return ResponseEntity.ok("Anime excluído com sucesso.");
 		}else {
