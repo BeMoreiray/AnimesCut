@@ -24,4 +24,6 @@
     <fullyQualifiedTypeName name="jakarta.validation.constraints.NotBlank"/>
     <fullyQualifiedTypeName name="jakarta.validation.constraints.NotNull"/>
     <fullyQualifiedTypeName name="org.springframework.http.ResponseEntity"/>
+    <fullyQualifiedTypeName name="jakarta.validation.constraints.Min"/>
+    <fullyQualifiedTypeName name="java.util.Optional"/>
 </qualifiedTypeNameHistroy>
