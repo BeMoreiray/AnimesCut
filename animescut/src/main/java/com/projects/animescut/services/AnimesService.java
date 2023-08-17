@@ -25,12 +25,13 @@ public class AnimesService {
 	}
 	
 	public Animes findById(Long id) {
-		Optional<Animes> optionalAnime = repository.findById(id);
+		Optional<Animes> optionalAnime =  repository.findById(id);
 		if(optionalAnime.isPresent()) {
-			 return optionalAnime.get() ;
+			return optionalAnime.get();
 		}else {
-            throw new ResourceNotFoundException("Anime não encontrado com o ID: " + id);
-        }
+			throw new ResourceNotFoundException("Anime não encontrado com o ID informado! Tente novamente");
+		}
+		
 		
 	}
 	
