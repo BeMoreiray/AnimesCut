@@ -10,7 +10,7 @@ create table tb_user(
 
 create table tb_typesAnimes(
 	id int primary key auto_increment,
-	type_anime varchar(50)
+	title varchar(50)
 );
 
 create table tb_animes(
@@ -58,10 +58,12 @@ create table tb_favorites(
 
 ALTER TABLE tb_animes ADD COLUMN id_typesAnimes INT;
 ALTER TABLE tb_animes ADD CONSTRAINT fk_typesAnimes FOREIGN KEY(id_typesAnimes) REFERENCES tb_typesAnimes(id) ON DELETE CASCADE;
-ALTER TABLE tb_animes ADD COLUMN id_movies INT;
-ALTER TABLE tb_animes ADD CONSTRAINT fk_movies FOREIGN KEY(id_movies) REFERENCES tb_movies(id) ON DELETE CASCADE;
-ALTER TABLE tb_animes ADD COLUMN id_series INT;
-ALTER TABLE tb_animes ADD CONSTRAINT fk_series FOREIGN KEY(id_series) REFERENCES tb_series(id) ON DELETE CASCADE;
+
+ALTER TABLE tb_movies ADD COLUMN id_animes INT;
+ALTER TABLE tb_movies ADD CONSTRAINT fk_animes FOREIGN KEY(id_animes) REFERENCES tb_animes(id) ON DELETE CASCADE;
+
+ALTER TABLE tb_series ADD COLUMN id_animes INT;
+ALTER TABLE tb_series ADD CONSTRAINT fk_animes2 FOREIGN KEY(id_animes) REFERENCES tb_animes(id) ON DELETE CASCADE;
 
 
 alter table tb_animes_has_avaliation add constraint fk_animes3 foreign key (id_animes) references tb_animes (id) on delete cascade;

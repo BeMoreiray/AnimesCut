@@ -21,6 +21,8 @@ insert into tb_series(number_episodes, number_seasons, id_animes) values(48, 2, 
 /*MOVIES-----------*/
 insert into tb_movies(duration_min, id_animes) values(420, 2);
 
+
 select * from tb_movies;
 select * from tb_series;
 select * from tb_typesAnimes;
+select * from tb_animes;

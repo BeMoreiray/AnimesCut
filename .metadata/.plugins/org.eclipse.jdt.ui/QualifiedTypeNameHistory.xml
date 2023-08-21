@@ -26,4 +26,5 @@
     <fullyQualifiedTypeName name="org.springframework.http.ResponseEntity"/>
     <fullyQualifiedTypeName name="jakarta.validation.constraints.Min"/>
     <fullyQualifiedTypeName name="java.util.Optional"/>
+    <fullyQualifiedTypeName name="com.projects.animescut.services.ResourceNotFoundException"/>
 </qualifiedTypeNameHistroy>
