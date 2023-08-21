@@ -9,7 +9,7 @@ import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
 
 @Entity
-@Table(name="tb_typeAnimes")
+@Table(name="tb_types_Animes")
 public class TypesAnimes {
 	
 	@Id

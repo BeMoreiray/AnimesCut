@@ -13,10 +13,10 @@ insert into tb_series(number_episodes, number_seasons, animes_id) values(48, 2, 
 insert into tb_movies(duration_min, animes_id) values(420, 2);
 
 /*TYPES ANIMES----------------*/
-insert into tb_Types_Animes(tipos) values ('Shounen');
-insert into tb_Types_Animes(tipos) values ('Shoujo');
-insert into tb_Types_Animes(tipos) values ('Seinen');
-insert into tb_Types_Animes(tipos) values ('Josei');
-insert into tb_Types_Animes(tipos) values ('Isekai');
-insert into tb_Types_Animes(tipos) values ('Gore');
-insert into tb_Types_Animes(tipos) values ('Slice of Life');
+insert into tb_types_Animes(title) values ('Shounen');
+insert into tb_types_Animes(title) values ('Shoujo');
+insert into tb_types_Animes(title) values ('Seinen');
+insert into tb_types_Animes(title) values ('Josei');
+insert into tb_types_Animes(title) values ('Isekai');
+insert into tb_types_Animes(title) values ('Gore');
+insert into tb_types_Animes(title) values ('Slice of Life');
