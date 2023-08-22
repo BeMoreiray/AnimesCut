@@ -5,13 +5,6 @@ insert into tb_animes(title, link, release_year, description, studio, creator) v
 /*filmes*/
 insert into tb_animes(title, link, release_year, description , studio, creator) values ('A Viagem de Chihiro', 'https://www.youtube.com/watch?v=ByXuk9QqQkk', 2003, 'uma garota entra em um mundo mágico desconhecido onde precisa lutar pela sua sobrevivência e resgatar seus pais das garras do vilão', 'Studio Ghibli', 'Hayao Miyazaki');
 
-/*SERIES -------------*/
-insert into tb_series(number_episodes, number_seasons, animes_id) values(138, 6, 1);
-insert into tb_series(number_episodes, number_seasons, animes_id) values(48, 2, 3);
-
-/*MOVIES-----------*/
-insert into tb_movies(duration_min, animes_id) values(420, 2);
-
 /*TYPES ANIMES----------------*/
 insert into tb_types_Animes(title) values ('Shounen');
 insert into tb_types_Animes(title) values ('Shoujo');

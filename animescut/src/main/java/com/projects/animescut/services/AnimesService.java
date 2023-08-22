@@ -5,6 +5,7 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.validation.annotation.Validated;
 
 import com.projects.animescut.entities.Animes;
 import com.projects.animescut.repositories.AnimesRepository;
@@ -13,6 +14,7 @@ import jakarta.transaction.Transactional;
 
 
 @Service
+@Validated 
 public class AnimesService {
 	
 	@Autowired
