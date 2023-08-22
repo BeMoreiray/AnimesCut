@@ -9,6 +9,7 @@ INDEX VERSION 1.132+C:\Users\beatr\Documents\ESTUDOS\JAVA\projeto-springJava\Ani
 4229428988.index
 2692728863.index
 2189677821.index
+58099404.index
 1907320182.index
 2492357415.index
 2257117364.index
@@ -30,13 +31,13 @@ INDEX VERSION 1.132+C:\Users\beatr\Documents\ESTUDOS\JAVA\projeto-springJava\Ani
 2453691648.index
 2214261673.index
 3745869645.index
-496427612.index
 1119730438.index
+496427612.index
 1589696751.index
 2879904671.index
 238831107.index
-1930271514.index
 4160032248.index
+1930271514.index
 2347303508.index
 635242318.index
 2099891925.index
