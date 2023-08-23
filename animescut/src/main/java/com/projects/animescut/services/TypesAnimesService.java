@@ -32,7 +32,9 @@ public class TypesAnimesService {
 		}
 	}
 	
-	public TypesAnimes insertNewObject(TypesAnimes types) {
+
+
+	public TypesAnimes saveNewObject(TypesAnimes types) {
 		TypesAnimes result = repository.save(types);
 		return result;
 	}
