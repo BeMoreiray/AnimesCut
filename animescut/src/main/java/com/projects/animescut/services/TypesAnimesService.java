@@ -1,6 +1,7 @@
 package com.projects.animescut.services;
 
 
+import java.sql.Types;
 import java.util.List;
 import java.util.Optional;
 
@@ -10,6 +11,8 @@ import org.springframework.validation.annotation.Validated;
 
 import com.projects.animescut.entities.TypesAnimes;
 import com.projects.animescut.repositories.TypesAnimesRepository;
+
+import jakarta.transaction.Transactional;
 
 @Service
 @Validated //anotação utilizada para auxiliar @notnull e @notBlank, permite que a validação seja feita
@@ -32,10 +35,20 @@ public class TypesAnimesService {
 		}
 	}
 	
-
-
 	public TypesAnimes saveNewObject(TypesAnimes types) {
 		TypesAnimes result = repository.save(types);
 		return result;
 	}
+	
+	@Transactional
+	public TypesAnimes updateTypes(Long id, TypesAnimes types) {
+		TypesAnimes result = repository.findById(id).orElse(null);
+		if(result != null) {
+			result.setTitle(types.getTitle());
+			
+			return repository.save(result);
+		}
+		return null;
+	}
+	
 }

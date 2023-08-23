@@ -3,9 +3,12 @@ package com.projects.animescut.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -13,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.projects.animescut.entities.TypesAnimes;
 import com.projects.animescut.services.TypesAnimesService;
 
+import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 
 @RestController
@@ -36,9 +40,28 @@ public class TypesAnimesController {
 	}
 	
 	@PostMapping
-	public TypesAnimes saveTypesAnimes(@RequestBody @Valid TypesAnimes types) {
+	public TypesAnimes insertNewTypeAnimes(@RequestBody @Valid TypesAnimes types) {
 		result = service.saveNewObject(types);
 		return result;
+	}
+	
+	@PutMapping("/{id}")
+	public ResponseEntity<Object> updateTypes(@PathVariable Long id, @RequestBody TypesAnimes updateTypes) {
+		TypesAnimes typesAnimes = service.findById(id);
+		if(typesAnimes == null) {
+			return ResponseEntity.notFound().build();
+		}
+		
+		typesAnimes.setTitle(updateTypes.getTitle());
+		result = service.updateTypes(id, typesAnimes);
+		
+		if(result != null) {
+			return ResponseEntity.ok(result);
+		}else {
+			//tentando uma nova forma de validação BAD_REQUEST
+			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Erro ao atualizar o tipo de anime! Verifique se há algum campo em branco, e tente novamente!");
+		}
+
 	}
 	
 }
