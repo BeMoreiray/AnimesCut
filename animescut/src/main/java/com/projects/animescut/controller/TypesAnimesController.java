@@ -46,13 +46,13 @@ public class TypesAnimesController {
 	}
 	
 	@PutMapping("/{id}")
-	public ResponseEntity<Object> updateTypes(@PathVariable Long id, @RequestBody TypesAnimes updateTypes) {
+	public ResponseEntity<Object> updateTypes(@PathVariable Long id, @RequestBody TypesAnimes updatedTypes) {
 		TypesAnimes typesAnimes = service.findById(id);
 		if(typesAnimes == null) {
 			return ResponseEntity.notFound().build();
 		}
 		
-		typesAnimes.setTitle(updateTypes.getTitle());
+		typesAnimes.setTitle(updatedTypes.getTitle());
 		result = service.updateTypes(id, typesAnimes);
 		
 		if(result != null) {
