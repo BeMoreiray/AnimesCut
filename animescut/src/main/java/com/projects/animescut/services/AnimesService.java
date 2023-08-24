@@ -37,7 +37,7 @@ public class AnimesService {
 		
 	}
 	
-	public Animes insertNewObject(Animes anime, Long typesAnimesId) {
+	public Animes insertNewObject(Animes anime) {
 		Animes result = repository.save(anime);
 		return result;
 	}
