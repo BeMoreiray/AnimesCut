@@ -1,7 +1,6 @@
 package com.projects.animescut.services;
 
 
-import java.sql.Types;
 import java.util.List;
 import java.util.Optional;
 
@@ -42,13 +41,24 @@ public class TypesAnimesService {
 	
 	@Transactional
 	public TypesAnimes updateTypes(Long id, TypesAnimes types) {
-		TypesAnimes result = repository.findById(id).orElse(null);
+		TypesAnimes result = findById(id); //refatoração (obs. diferente da classe animeService)
 		if(result != null) {
 			result.setTitle(types.getTitle());
 			
 			return repository.save(result);
 		}
 		return null;
+	}
+	
+	@Transactional
+	public boolean deleteTypesAnimes(Long id) {
+		TypesAnimes result = findById(id);
+		
+		if(result != null) {
+			repository.delete(result);
+			return true;
+		}
+		return false;
 	}
 	
 }
