@@ -21,8 +21,6 @@ public class AnimesService {
 	
 	@Autowired
 	AnimesRepository repository;
-	@Autowired
-	TypesAnimesRepository typesRepository;
 	
 	
 	public List<Animes> findAll() {

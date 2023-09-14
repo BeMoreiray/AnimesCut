@@ -13,3 +13,10 @@ insert into tb_types_Animes(title) values ('Josei');
 insert into tb_types_Animes(title) values ('Isekai');
 insert into tb_types_Animes(title) values ('Gore');
 insert into tb_types_Animes(title) values ('Slice of Life');
+
+/*SERIES-------------------*/
+insert into tb_series(number_episodes, number_seasons, animes_id) values (138, 7, 1);
+insert into tb_series(number_episodes, number_seasons, animes_id) values (48, 2, 2);
+
+/*MOVIES----------------*/
+insert into tb_movies(duration_min, animes_id) values (125, 3);

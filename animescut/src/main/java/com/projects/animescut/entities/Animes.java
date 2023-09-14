@@ -35,8 +35,8 @@ public class Animes {
 	private String creator;
 	
 	@ManyToOne
-	@JoinColumn(name = "types_animes_id")
-	TypesAnimes type;
+	@JoinColumn(name = "typesAnimes_id")
+	TypesAnimes typeAnimes;
 	
 	public Animes() {
 		
@@ -99,11 +99,11 @@ public class Animes {
 	}
 
 	public TypesAnimes getType() {
-		return type;
+		return typeAnimes;
 	}
 
 	public void setType(TypesAnimes type) {
-		this.type = type;
+		this.typeAnimes = type;
 	}
 	
 	
