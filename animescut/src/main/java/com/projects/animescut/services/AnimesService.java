@@ -8,7 +8,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.validation.annotation.Validated;
 
 import com.projects.animescut.entities.Animes;
+
 import com.projects.animescut.repositories.AnimesRepository;
+import com.projects.animescut.repositories.TypesAnimesRepository;
 
 import jakarta.transaction.Transactional;
 
@@ -19,6 +21,8 @@ public class AnimesService {
 	
 	@Autowired
 	AnimesRepository repository;
+	@Autowired
+	TypesAnimesRepository typesRepository;
 	
 	
 	public List<Animes> findAll() {
@@ -37,7 +41,9 @@ public class AnimesService {
 		
 	}
 	
-	public Animes insertNewObject(Animes anime) {
+	public Animes insertNewObject(Animes anime/*, Long typesAnimesId*/) {
+		/*TypesAnimes typesResult = typesRepository.findById(typesAnimesId);
+		anime.setType(typesResult);*/
 		Animes result = repository.save(anime);
 		return result;
 	}
@@ -52,6 +58,7 @@ public class AnimesService {
 			result.setDescription(anime.getDescription());
 			result.setStudio(anime.getStudio());
 			result.setCreator(anime.getCreator());
+		
 			
 			return repository.save(result);
 			
@@ -70,6 +77,12 @@ public class AnimesService {
 		return false;
 		
 	}
+	
+	public Animes findAnimesByTitle(String title) {
+		 String tituloLowerCase = title.toLowerCase().replaceAll(" ", ""); // Converte para minúsculas e remove espaços
+	        Animes result = repository.findByTitle(tituloLowerCase);
+	        return result;	
+	  }
 	
 	
 }

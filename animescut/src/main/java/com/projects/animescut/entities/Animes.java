@@ -97,6 +97,14 @@ public class Animes {
 	public void setCreator(String creator) {
 		this.creator = creator;
 	}
+
+	public TypesAnimes getType() {
+		return type;
+	}
+
+	public void setType(TypesAnimes type) {
+		this.type = type;
+	}
 	
 	
 	
