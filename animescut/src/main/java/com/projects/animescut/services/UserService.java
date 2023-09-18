@@ -1,6 +1,7 @@
 package com.projects.animescut.services;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -19,5 +20,15 @@ public class UserService {
 	public List<User> findAllUsers(){
 		List<User> result = repository.findAll();
 		return result;
+	}
+	
+
+	public User findUsersById(Long id) {
+		Optional<User> optional = repository.findById(id);
+		if(optional.isPresent()) {
+			return optional.get();
+		}else {
+			throw new ResourceNotFoundException("Usuário não encontrado!");
+		}
 	}
 }
