@@ -1,11 +1,11 @@
 /*TYPES ANIMES----------------*/
-insert into tb_typesAnimes(tipos) values ('Shounen');
-insert into tb_typesAnimes(tipos) values ('Shoujo');
-insert into tb_typesAnimes(tipos) values ('Seinen');
-insert into tb_typesAnimes(tipos) values ('Josei');
-insert into tb_typesAnimes(tipos) values ('Isekai');
-insert into tb_typesAnimes(tipos) values ('Gore');
-insert into tb_typesAnimes(tipos) values ('Slice of Life');
+insert into tb_typesAnimes(title) values ('Shounen');
+insert into tb_typesAnimes(title) values ('Shoujo');
+insert into tb_typesAnimes(title) values ('Seinen');
+insert into tb_typesAnimes(title) values ('Josei');
+insert into tb_typesAnimes(title) values ('Isekai');
+insert into tb_typesAnimes(title) values ('Gore');
+insert into tb_typesAnimes(title) values ('Slice of Life');
 
 /*ANIMES -----------------*/
 /*series*/

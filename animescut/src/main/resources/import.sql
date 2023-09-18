@@ -1,3 +1,5 @@
+
+
 /*ANIMES -----------------*/
 /*series*/
 insert into tb_animes(title, link, release_year, description, studio, creator) values ('BOKU NO HERO', 'https://www.youtube.com/watch?v=L1FdEBTJXus', 2016, 'um anime de humanos mutantes que estudam em uma escola de heróis', 'Bones', 'Kōhei Horikoshi');
@@ -20,3 +22,9 @@ insert into tb_series(number_episodes, number_seasons, animes_id) values (48, 2,
 
 /*MOVIES----------------*/
 insert into tb_movies(duration_min, animes_id) values (125, 3);
+
+/*USER-----------------*/
+insert into tb_user(user_name, email, pass) values ('bibia123', 'bia@email.com', '12345');
+insert into tb_user(user_name, email, pass) values ('blastoise', 'blastoise@email.com', '1234');
+insert into tb_user(user_name, email, pass) values ('jota', 'jota@email.com', 'char123');
+
