@@ -10,7 +10,6 @@ import org.springframework.validation.annotation.Validated;
 import com.projects.animescut.entities.Animes;
 
 import com.projects.animescut.repositories.AnimesRepository;
-import com.projects.animescut.repositories.TypesAnimesRepository;
 
 import jakarta.transaction.Transactional;
 

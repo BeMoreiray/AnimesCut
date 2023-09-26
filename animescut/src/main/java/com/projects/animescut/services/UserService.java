@@ -10,6 +10,8 @@ import org.springframework.validation.annotation.Validated;
 import com.projects.animescut.entities.User;
 import com.projects.animescut.repositories.UserRepository;
 
+import jakarta.transaction.Transactional;
+
 @Service
 @Validated
 public class UserService {
@@ -30,5 +32,23 @@ public class UserService {
 		}else {
 			throw new ResourceNotFoundException("Usuário não encontrado!");
 		}
+	}
+	
+	public User insertNewUserObject(User user) {
+		User result = repository.save(user);
+		return result;
+	}
+	
+	@Transactional
+	public User updateUser(Long id, User user) {
+		User result = repository.findById(id).orElse(user);
+		if(result != null) {
+			result.setUserName(user.getUserName());
+			result.setEmail(user.getEmail());
+			result.setPassword(user.getPassword());
+			
+			return repository.save(result);
+		}
+		return null;
 	}
 }
