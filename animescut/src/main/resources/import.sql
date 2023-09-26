@@ -3,9 +3,9 @@
 /*ANIMES -----------------*/
 /*series*/
 insert into tb_animes(title, link, release_year, description, studio, creator) values ('BOKU NO HERO', 'https://www.youtube.com/watch?v=L1FdEBTJXus', 2016, 'um anime de humanos mutantes que estudam em uma escola de heróis', 'Bones', 'Kōhei Horikoshi');
-insert into tb_animes(title, link, release_year, description, studio, creator) values ('Viland Saga', 'https://www.youtube.com/watch?v=f8JrZ7Q_p-8', 2019, 'anime de época que se passa na ocupação nórdica na Grã-Bretanha durante a Idade Média', 'Mappa', 'Makoto Yukimura');
+insert into tb_animes(title, link, release_year, description, studio, creator) values ('VILAND SAGA', 'https://www.youtube.com/watch?v=f8JrZ7Q_p-8', 2019, 'anime de época que se passa na ocupação nórdica na Grã-Bretanha durante a Idade Média', 'Mappa', 'Makoto Yukimura');
 /*filmes*/
-insert into tb_animes(title, link, release_year, description , studio, creator) values ('A Viagem de Chihiro', 'https://www.youtube.com/watch?v=ByXuk9QqQkk', 2003, 'uma garota entra em um mundo mágico desconhecido onde precisa lutar pela sua sobrevivência e resgatar seus pais das garras do vilão', 'Studio Ghibli', 'Hayao Miyazaki');
+insert into tb_animes(title, link, release_year, description , studio, creator) values ('A VIAGEM DE CHIHIRO', 'https://www.youtube.com/watch?v=ByXuk9QqQkk', 2003, 'uma garota entra em um mundo mágico desconhecido onde precisa lutar pela sua sobrevivência e resgatar seus pais das garras do vilão', 'Studio Ghibli', 'Hayao Miyazaki');
 
 /*TYPES ANIMES----------------*/
 insert into tb_types_Animes(title) values ('Shounen');

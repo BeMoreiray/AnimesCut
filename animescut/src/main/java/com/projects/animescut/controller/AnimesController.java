@@ -2,7 +2,6 @@ package com.projects.animescut.controller;
 
 import java.util.List;
 
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,6 +13,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.projects.animescut.entities.Animes;
@@ -85,15 +85,13 @@ public class AnimesController {
 		}
 	}
 	
-	@GetMapping(value="/{title}")
-	public ResponseEntity<Animes> findByAnimesTitle(@RequestParam String title){
-		Animes result = service.findAnimesByTitle(title);
-		if(result == null) {
-			return ResponseEntity.notFound().build();
-		}
-		return ResponseEntity.ok(result);
+	@GetMapping("/searchForAnimesNames")
+	@ResponseBody
+	public ResponseEntity<List<Animes>> searchAnimesByName(@RequestParam("title") String title){
+		List<Animes> result = service.seacrhAnimesByTitle(title.trim().toUpperCase());
+		
+		return new ResponseEntity<List<Animes>>(result, HttpStatus.OK);
 	}
-	
 	
 	
 	

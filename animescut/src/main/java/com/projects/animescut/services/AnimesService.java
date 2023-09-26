@@ -76,11 +76,9 @@ public class AnimesService {
 		
 	}
 	
-	public Animes findAnimesByTitle(String title) {
-		 String tituloLowerCase = title.toLowerCase().replaceAll(" ", ""); // Converte para minúsculas e remove espaços
-	        Animes result = repository.findByTitle(tituloLowerCase);
-	        return result;	
-	  }
+	public List<Animes> seacrhAnimesByTitle(String title){
+		return repository.findAnimesByTitle(title);
+	}
 	
 	
 }
