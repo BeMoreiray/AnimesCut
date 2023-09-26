@@ -90,7 +90,11 @@ public class AnimesController {
 	public ResponseEntity<List<Animes>> searchAnimesByName(@RequestParam("title") String title){
 		List<Animes> result = service.seacrhAnimesByTitle(title.trim().toUpperCase());
 		
-		return new ResponseEntity<List<Animes>>(result, HttpStatus.OK);
+		if(result != null) {
+		return  ResponseEntity.ok(result);
+		}else {
+			return ResponseEntity.notFound().build();
+		}
 	}
 	
 	

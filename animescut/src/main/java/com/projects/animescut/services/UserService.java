@@ -51,4 +51,15 @@ public class UserService {
 		}
 		return null;
 	}
+	
+	@Transactional
+	public boolean deleteUserById(Long id) {
+		User result = findUsersById(id);
+		if(result != null) {
+			repository.delete(result);
+			return true;
+		}else {
+			return false;
+		}
+	}
 }
