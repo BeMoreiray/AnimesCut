@@ -62,4 +62,9 @@ public class UserService {
 			return false;
 		}
 	}
+	
+	public User authenticate(String email, String password) {
+		User result = repository.findByEmailAndPassword(email, password);
+		return result;
+	}
 }
