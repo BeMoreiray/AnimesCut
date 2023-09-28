@@ -86,7 +86,6 @@ public class AnimesController {
 	}
 	
 	@GetMapping("/searchForAnimesNames")
-	@ResponseBody
 	public ResponseEntity<List<Animes>> searchAnimesByName(@RequestParam("title") String title){
 		List<Animes> result = service.seacrhAnimesByTitle(title.trim().toUpperCase());
 		

@@ -79,12 +79,12 @@ public class UserController {
 	}
 	
 	@PostMapping(value="/login")
-	public String authenticateUserLogin(@RequestParam String email,@RequestParam String password){
+	public ResponseEntity<String> authenticateUserLogin(@RequestParam String email,@RequestParam String password){
 		User user = service.authenticate(email, password);
 		if(user != null) {
-			return "Login feito com suceso!";
+			return ResponseEntity.ok("Login feito com suceso!");
 		}else {
-			return "Login inválido, tente novamente!";
+			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Login inválido!");
 		}
 	}
 	
