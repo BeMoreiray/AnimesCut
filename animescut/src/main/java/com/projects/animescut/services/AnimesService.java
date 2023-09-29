@@ -55,6 +55,7 @@ public class AnimesService {
 			result.setDescription(anime.getDescription());
 			result.setStudio(anime.getStudio());
 			result.setCreator(anime.getCreator());
+			result.setTypes(anime.getTypes());;
 		
 			
 			return repository.save(result);

@@ -22,6 +22,8 @@ public class Movies {
 	@JoinColumn(name = "animes_id")
 	private Animes animes;
 	
+	
+	
 	public Long getId() {
 		return id;
 	}

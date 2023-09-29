@@ -1,5 +1,4 @@
 
-
 /*ANIMES -----------------*/
 /*series*/
 insert into tb_animes(title, link, release_year, description, studio, creator) values ('BOKU NO HERO', 'https://www.youtube.com/watch?v=L1FdEBTJXus', 2016, 'um anime de humanos mutantes que estudam em uma escola de heróis', 'Bones', 'Kōhei Horikoshi');
