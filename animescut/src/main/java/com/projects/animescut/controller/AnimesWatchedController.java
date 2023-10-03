@@ -41,8 +41,8 @@ public class AnimesWatchedController {
 	}
 	
 	@PostMapping
-	public Series insertSeries(@Valid @RequestBody Series serie) {
-		Series result = service.insertNewObject(serie);
+	public AnimesWatched insertAnimesWatched(@Valid @RequestBody AnimesWatched animesW) {
+		AnimesWatched result = service.insertNewObject(animesW);
 		return result;
 	}
 	
