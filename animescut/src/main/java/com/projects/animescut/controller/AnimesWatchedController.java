@@ -47,23 +47,22 @@ public class AnimesWatchedController {
 	}
 	
 	@PutMapping("/{id}")
-	public ResponseEntity<Object> updateSeries(@PathVariable Long id, @RequestBody Series updatedSeries) {
-		Series serie = service.findSeriesById(id);
-		if(serie == null) {
+	public ResponseEntity<Object> updateAnimesWatched(@PathVariable Long id, @RequestBody AnimesWatched updatedAnimesW) {
+		AnimesWatched animesW = service.findById(id);
+		if(animesW == null) {
 			return ResponseEntity.notFound().build();
 		}
 		
 		// Atualiza o anime com os valores fornecidos pelo objeto updateAnime
-		serie.setNumberEpisodes(updatedSeries.getNumberEpisodes());
-		serie.setNumberSeasons(updatedSeries.getNumberSeasons());
-		serie.setAnimes(updatedSeries.getAnimes());
+		animesW.setUser(updatedAnimesW.getUser());
+		animesW.setAnimes(updatedAnimesW.getAnimes());
 		
-		 result = service.updateSeries(id, serie);
+		 result = service.updateAnimesWatched(id, animesW);
 		
         if (result != null) {
             return ResponseEntity.ok(result);
         } else {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Erro ao atualizar o serie de anime");
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Erro ao atualizar!");
         }
 
 	}
