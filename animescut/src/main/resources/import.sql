@@ -27,3 +27,7 @@ insert into tb_user(user_name, email, pass) values ('bibia123', 'bia@email.com',
 insert into tb_user(user_name, email, pass) values ('blastoise', 'blastoise@email.com', '1234');
 insert into tb_user(user_name, email, pass) values ('jota', 'jota@email.com', 'char123');
 
+/*AnimesWatched---------*/
+insert into tb_animes_watched(user_id, animes_id) values (1, 1);
+insert into tb_animes_watched(user_id, animes_id) values (2, 2);
+insert into tb_animes_watched(user_id, animes_id) values (3, 3);
