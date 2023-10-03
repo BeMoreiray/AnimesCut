@@ -9,7 +9,6 @@ INDEX VERSION 1.132+C:\Users\beatr\Documents\ESTUDOS\JAVA\projeto-springJava\Ani
 4229428988.index
 2692728863.index
 2189677821.index
-58099404.index
 1907320182.index
 2492357415.index
 2257117364.index

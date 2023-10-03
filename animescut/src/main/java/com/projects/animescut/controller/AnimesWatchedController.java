@@ -35,8 +35,8 @@ public class AnimesWatchedController {
 	}
 	
 	@GetMapping(value = "/{id}")
-	public Series getSeriesById(@PathVariable Long id) {
-		Series result = service.findSeriesById(id);
+	public AnimesWatched getAnimesWatchedyId(@PathVariable Long id) {
+		AnimesWatched result = service.findById(id);
 		return result;
 	}
 	
