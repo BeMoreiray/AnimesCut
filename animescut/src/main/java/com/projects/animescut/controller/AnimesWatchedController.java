@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.projects.animescut.entities.AnimesWatched;
-import com.projects.animescut.entities.Series;
 import com.projects.animescut.services.AnimesWatchedService;
 
 import jakarta.validation.Valid;
@@ -68,10 +67,10 @@ public class AnimesWatchedController {
 	}
 	
 	@DeleteMapping("/{id}")
-	public ResponseEntity<String> deleteSeries(@PathVariable Long id){
-		boolean deleted = service.deleteSeriesById(id);
+	public ResponseEntity<String> deleteAnimesWatched(@PathVariable Long id){
+		boolean deleted = service.deleteAnimesWatchedById(id);
 		if(deleted) {
-			return ResponseEntity.ok("Serie excluída com sucesso.");
+			return ResponseEntity.ok("Exclusão feito com sucesso");
 		}else {
 			return ResponseEntity.notFound().build();
 		}
