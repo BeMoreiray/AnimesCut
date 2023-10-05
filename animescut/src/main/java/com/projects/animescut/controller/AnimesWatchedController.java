@@ -76,4 +76,14 @@ public class AnimesWatchedController {
 		}
 	}
 	
+	@GetMapping(value="/searchByUserId/{userId}")
+	public ResponseEntity<List<AnimesWatched>> searchAnimesWachedByUserId(@PathVariable Long userId){
+		List<AnimesWatched> result = service.searchAnimesWatchedByUserId(userId);
+		
+		if(result != null) {
+			return ResponseEntity.ok(result);
+		}else {
+			return ResponseEntity.notFound().build();
+		}
+	}
 }

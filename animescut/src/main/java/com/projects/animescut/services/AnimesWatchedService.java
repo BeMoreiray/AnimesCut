@@ -61,5 +61,8 @@ public class AnimesWatchedService {
 		
 	}
 	
+	public List<AnimesWatched> searchAnimesWatchedByUserId(Long userId){
+		return repository.findAnimesWatchedByUserId(userId);
+	}
 	
 }
