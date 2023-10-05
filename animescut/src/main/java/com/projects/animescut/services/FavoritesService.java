@@ -61,5 +61,9 @@ public class FavoritesService {
 		
 	}
 	
+	public List<Favorites> searchFavoritesByUserId(Long userId){
+		return repository.findFavoritesByUserId(userId);
+	}
+	
 	
 }

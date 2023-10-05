@@ -76,4 +76,16 @@ public class FavoritesController {
 		}
 	}
 	
+	@GetMapping(value = "/searchByUserId/{userId}")
+	public ResponseEntity<List<Favorites>> searchFavoritesByUserId(@PathVariable Long userId){
+		List<Favorites> result = service.searchFavoritesByUserId(userId);
+		
+		if(result != null) {
+			return ResponseEntity.ok(result);
+		}else {
+			return ResponseEntity.notFound().build();
+		}
+		
+	}
+	
 }
