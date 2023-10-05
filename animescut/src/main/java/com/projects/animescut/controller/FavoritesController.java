@@ -29,14 +29,14 @@ public class FavoritesController {
 	Favorites result;
 	
 	@GetMapping
-	public List<Favorites> getAllAnimesWatched(){
+	public List<Favorites> getAllFavorites(){
 		List<Favorites> result = service.findAllFavorites();
 		return result;
 	}
 	
 	@GetMapping(value = "/{id}")
-	public AnimesWatched getAnimesWatchedyId(@PathVariable Long id) {
-		AnimesWatched result = service.findById(id);
+	public Favorites getFavoritesById(@PathVariable Long id) {
+		Favorites result = service.findById(id);
 		return result;
 	}
 	

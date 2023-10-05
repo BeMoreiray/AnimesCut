@@ -33,9 +33,7 @@
     <fullyQualifiedTypeName name="jakarta.validation.constraints.NotBlank"/>
     <fullyQualifiedTypeName name="com.projects.animescut.repositories.UserRepository"/>
     <fullyQualifiedTypeName name="org.springframework.stereotype.Controller"/>
-    <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
     <fullyQualifiedTypeName name="com.projects.animescut.entities.User"/>
-    <fullyQualifiedTypeName name="java.util.Optional"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.GetMapping"/>
     <fullyQualifiedTypeName name="java.util.List"/>
     <fullyQualifiedTypeName name="org.springframework.http.HttpStatusCode"/>
@@ -44,4 +42,10 @@
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PathVariable"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.DeleteMapping"/>
     <fullyQualifiedTypeName name="com.projects.animescut.entities.AnimesWatched"/>
+    <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
+    <fullyQualifiedTypeName name="org.yaml.snakeyaml.events.Event.ID"/>
+    <fullyQualifiedTypeName name="java.util.Optional"/>
+    <fullyQualifiedTypeName name="com.projects.animescut.exceptions.DuplicationException"/>
+    <fullyQualifiedTypeName name="com.projects.animescut.services.FavoritesService"/>
+    <fullyQualifiedTypeName name="com.projects.animescut.entities.Favorites"/>
 </qualifiedTypeNameHistroy>
