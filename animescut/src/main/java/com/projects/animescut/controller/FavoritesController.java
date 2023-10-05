@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.projects.animescut.entities.AnimesWatched;
 import com.projects.animescut.entities.Favorites;
 import com.projects.animescut.services.FavoritesService;
 
@@ -68,8 +67,8 @@ public class FavoritesController {
 	}
 	
 	@DeleteMapping("/{id}")
-	public ResponseEntity<String> deleteAnimesWatched(@PathVariable Long id){
-		boolean deleted = service.deleteAnimesWatchedById(id);
+	public ResponseEntity<String> deleteFavorites(@PathVariable Long id){
+		boolean deleted = service.deleteFavoritesById(id);
 		if(deleted) {
 			return ResponseEntity.ok("Exclusão feito com sucesso");
 		}else {
