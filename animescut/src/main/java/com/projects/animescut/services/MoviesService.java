@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.projects.animescut.entities.Movies;
+import com.projects.animescut.exceptions.ResourceNotFoundException;
 import com.projects.animescut.repositories.MoviesRepository;
 
 import jakarta.transaction.Transactional;

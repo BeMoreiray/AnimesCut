@@ -1,4 +1,4 @@
-package com.projects.animescut.services;
+package com.projects.animescut.exceptions;
 
 public class ResourceNotFoundException extends RuntimeException {
 	public ResourceNotFoundException(String message){

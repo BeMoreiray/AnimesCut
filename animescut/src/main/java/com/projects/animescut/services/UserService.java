@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.validation.annotation.Validated;
 
 import com.projects.animescut.entities.User;
+import com.projects.animescut.exceptions.ResourceNotFoundException;
 import com.projects.animescut.repositories.UserRepository;
 
 import jakarta.transaction.Transactional;
