@@ -47,17 +47,17 @@ public class FavoritesController {
 	}
 	
 	@PutMapping("/{id}")
-	public ResponseEntity<Object> updateAnimesWatched(@PathVariable Long id, @RequestBody AnimesWatched updatedAnimesW) {
-		AnimesWatched animesW = service.findById(id);
-		if(animesW == null) {
+	public ResponseEntity<Object> updateFavorites(@PathVariable Long id, @RequestBody Favorites updatedFavorites) {
+		Favorites favorites = service.findById(id);
+		if(favorites == null) {
 			return ResponseEntity.notFound().build();
 		}
 		
 		// Atualiza o anime com os valores fornecidos pelo objeto updateAnime
-		animesW.setUser(updatedAnimesW.getUser());
-		animesW.setAnimes(updatedAnimesW.getAnimes());
+		favorites.setUser(updatedFavorites.getUser());
+		favorites.setAnimes(updatedFavorites.getAnimes());
 		
-		 result = service.updateAnimesWatched(id, animesW);
+		 result = service.updateFavorites(id, favorites);
 		
         if (result != null) {
             return ResponseEntity.ok(result);
