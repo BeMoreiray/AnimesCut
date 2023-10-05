@@ -36,13 +36,13 @@ public class FavoritesController {
 	
 	@GetMapping(value = "/{id}")
 	public Favorites getFavoritesById(@PathVariable Long id) {
-		Favorites result = service.findById(id);
+		result = service.findById(id);
 		return result;
 	}
 	
 	@PostMapping
-	public AnimesWatched insertAnimesWatched(@Valid @RequestBody AnimesWatched animesW) {
-		AnimesWatched result = service.insertNewObject(animesW);
+	public Favorites saveNewFavorites(@Valid @RequestBody Favorites favorites) {
+		 result = service.insertNewObject(favorites);
 		return result;
 	}
 	
