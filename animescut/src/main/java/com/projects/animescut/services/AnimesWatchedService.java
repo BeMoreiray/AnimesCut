@@ -27,7 +27,7 @@ public class AnimesWatchedService {
 		if(optional.isPresent()) {
 			return optional.get();
 		}else {
-			throw new ResourceNotFoundException("Series de Anime não encontrado com o ID informado! Tente novamente");
+			throw new ResourceNotFoundException("Objeto não encontrado com o ID informado! Tente novamente");
 		}
 	}
 	

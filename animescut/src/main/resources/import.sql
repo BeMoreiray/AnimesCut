@@ -31,3 +31,8 @@ insert into tb_user(user_name, email, pass) values ('jota', 'jota@email.com', 'c
 insert into tb_animes_watched(user_id, animes_id) values (1, 1);
 insert into tb_animes_watched(user_id, animes_id) values (2, 2);
 insert into tb_animes_watched(user_id, animes_id) values (3, 3);
+
+/*Favorites------------*/
+insert into tb_favorites(user_id, animes_id) values (1,1);
+insert into tb_favorites(user_id, animes_id) values (2, 2);
+insert into tb_favorites(user_id, animes_id) values (3, 3);
