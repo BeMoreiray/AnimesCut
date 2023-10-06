@@ -42,7 +42,7 @@ public class TypesAnimesController {
 	
 	@PostMapping
 	public TypesAnimes insertNewTypeAnimes(@RequestBody @Valid TypesAnimes types) {
-		result = service.saveNewObject(types);
+		result = service.insertNewObject(types);
 		return result;
 	}
 	

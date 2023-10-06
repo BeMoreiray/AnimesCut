@@ -6,6 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.projects.animescut.entities.Series;
+import com.projects.animescut.exceptions.DuplicationException;
 import com.projects.animescut.exceptions.ResourceNotFoundException;
 import com.projects.animescut.repositories.SeriesRepository;
 
@@ -29,12 +30,21 @@ public class SeriesService {
 			throw new ResourceNotFoundException("Series de Anime não encontrado com o ID informado! Tente novamente");
 		}
 	}
-	
+
+/*------------------------CADASTRAR-----------------------------*/	
 	public Series insertNewObject(Series serie) {
+		if(existDuplicationSeries(serie)) {
+			throw new DuplicationException("Esse Anime já foi salvo como uma SÉRIE! tente outro.");
+		}
 		Series result = repository.save(serie);
 		return result;
 	}
 	
+	protected boolean existDuplicationSeries(Series serie) {
+		Optional<Series> existingSerie = repository.findByAnimes(serie.getAnimes());
+		return existingSerie.isPresent();
+	}
+/*--------------------------------------------------------*/	
 	@Transactional
 	public Series updateSeries(Long id, Series series) {
 		Series result = repository.findById(id).orElse(null);

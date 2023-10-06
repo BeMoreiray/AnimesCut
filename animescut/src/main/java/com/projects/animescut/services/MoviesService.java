@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.projects.animescut.entities.Movies;
+import com.projects.animescut.exceptions.DuplicationException;
 import com.projects.animescut.exceptions.ResourceNotFoundException;
 import com.projects.animescut.repositories.MoviesRepository;
 
@@ -30,10 +31,20 @@ public class MoviesService {
 			throw new ResourceNotFoundException("Filme de Animes não encontrado com o ID informado! Tente novamente");
 		}
 	}
-	
+
+/*------------------------Cadastrar-----------------------------------*/
 	public Movies insertNewObject(Movies movie) {
-		Movies result = repository.save(movie);
-		return result;
+		if(existDuplicationMovies(movie)) {
+			throw new DuplicationException("Esse Anime já foi salvo como um Filme! Tente outro.");
+		}
+		
+		return repository.save(movie);
+		
+	}
+/*---------------------------------------------------*/
+	protected boolean existDuplicationMovies(Movies movie) {
+		Optional<Movies> existingMovie = repository.findByAnimes(movie.getAnimes());
+		return existingMovie.isPresent();
 	}
 	
 	@Transactional

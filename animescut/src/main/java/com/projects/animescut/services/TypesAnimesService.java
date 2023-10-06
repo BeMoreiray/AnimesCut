@@ -8,7 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.validation.annotation.Validated;
 
+import com.projects.animescut.entities.Animes;
 import com.projects.animescut.entities.TypesAnimes;
+import com.projects.animescut.exceptions.DuplicationException;
 import com.projects.animescut.exceptions.ResourceNotFoundException;
 import com.projects.animescut.repositories.TypesAnimesRepository;
 
@@ -35,9 +37,17 @@ public class TypesAnimesService {
 		}
 	}
 	
-	public TypesAnimes saveNewObject(TypesAnimes types) {
+	public TypesAnimes insertNewObject(TypesAnimes types) {
+		if(existsDuplicationTypesAnimes(types)) {
+			throw new DuplicationException("Este Tipo já foi salvo! Tente novamente.");
+		}
 		TypesAnimes result = repository.save(types);
 		return result;
+	}
+	
+	protected boolean existsDuplicationTypesAnimes(TypesAnimes ta) {
+		Optional<TypesAnimes> existingTA = repository.findByTitle(ta.getTitle());
+				return existingTA.isPresent();
 	}
 	
 	@Transactional
