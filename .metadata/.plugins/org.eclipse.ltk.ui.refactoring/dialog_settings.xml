@@ -17,4 +17,7 @@
 		<item key="assumeCloneReturnsSameType" value="true"/>
 		<item key="leaveUnconstrainedRaw" value="true"/>
 	</section>
+	<section name="UseSupertypeWizard">
+		<item key="rewriteInstanceOf" value="false"/>
+	</section>
 </section>

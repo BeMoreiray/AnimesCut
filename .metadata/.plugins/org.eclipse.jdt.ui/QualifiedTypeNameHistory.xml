@@ -20,7 +20,6 @@
     <fullyQualifiedTypeName name="com.projects.animescut.repositories.AnimesRepository"/>
     <fullyQualifiedTypeName name="com.projects.animescut.entities.Animes"/>
     <fullyQualifiedTypeName name="javax.print.DocFlavor.SERVICE_FORMATTED"/>
-    <fullyQualifiedTypeName name="org.springframework.http.ResponseEntity"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestBody"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestParam"/>
     <fullyQualifiedTypeName name="jakarta.persistence.GeneratedValue"/>
@@ -35,17 +34,18 @@
     <fullyQualifiedTypeName name="org.springframework.stereotype.Controller"/>
     <fullyQualifiedTypeName name="com.projects.animescut.entities.User"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.GetMapping"/>
-    <fullyQualifiedTypeName name="java.util.List"/>
     <fullyQualifiedTypeName name="org.springframework.http.HttpStatusCode"/>
     <fullyQualifiedTypeName name="org.springframework.http.HttpStatus"/>
     <fullyQualifiedTypeName name="jakarta.transaction.Transactional"/>
-    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PathVariable"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.DeleteMapping"/>
-    <fullyQualifiedTypeName name="com.projects.animescut.entities.AnimesWatched"/>
     <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
     <fullyQualifiedTypeName name="org.yaml.snakeyaml.events.Event.ID"/>
     <fullyQualifiedTypeName name="java.util.Optional"/>
     <fullyQualifiedTypeName name="com.projects.animescut.exceptions.DuplicationException"/>
     <fullyQualifiedTypeName name="com.projects.animescut.services.FavoritesService"/>
     <fullyQualifiedTypeName name="com.projects.animescut.entities.Favorites"/>
+    <fullyQualifiedTypeName name="com.projects.animescut.entities.AnimesWatched"/>
+    <fullyQualifiedTypeName name="org.springframework.http.ResponseEntity"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PathVariable"/>
 </qualifiedTypeNameHistroy>

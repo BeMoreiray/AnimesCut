@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.validation.annotation.Validated;
 
 import com.projects.animescut.entities.Animes;
+import com.projects.animescut.exceptions.DuplicationException;
 import com.projects.animescut.exceptions.ResourceNotFoundException;
 import com.projects.animescut.repositories.AnimesRepository;
 
@@ -37,14 +38,22 @@ public class AnimesService {
 		
 		
 	}
-	
-	public Animes insertNewObject(Animes anime/*, Long typesAnimesId*/) {
-		/*TypesAnimes typesResult = typesRepository.findById(typesAnimesId);
-		anime.setType(typesResult);*/
-		Animes result = repository.save(anime);
-		return result;
+	/*---------------------------CADASTRAR------------------------------------------*/
+	public Animes insertNewObject(Animes anime) {
+		if(existsDuplicationAnime(anime)) {
+			throw new DuplicationException("Este anime já existe no banco de dados. Tente outro!");
+		}
+		return repository.save(anime);
 	}
 	
+	
+
+	protected boolean existsDuplicationAnime(Animes anime) {
+		Optional<Animes> existingAnime = repository.findByTitleAndLinkAndDescription(anime.getTitle(), anime.getLink(), anime.getDescription());
+		return existingAnime.isPresent();
+	}
+	
+	/*-----------------------------------------------------------------*/
 	@Transactional
 	public Animes updateAnimes(Long id, Animes anime) {
 		Animes result = repository.findById(id).orElse(null);

@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.validation.annotation.Validated;
 
 import com.projects.animescut.entities.User;
+import com.projects.animescut.exceptions.DuplicationException;
 import com.projects.animescut.exceptions.ResourceNotFoundException;
 import com.projects.animescut.repositories.UserRepository;
 
@@ -34,11 +35,21 @@ public class UserService {
 			throw new ResourceNotFoundException("Usuário não encontrado!");
 		}
 	}
-	
+
+/*---------------------------CADASTRAR--------------------------------*/	
 	public User insertNewUserObject(User user) {
-		User result = repository.save(user);
-		return result;
+		String email = user.getEmail();
+		String userName = user.getUserName();
+		
+		if(repository.findByEmail(email).isPresent()) {
+			throw new DuplicationException("Esse email já existe!");
+		}else if(repository.findByUserName(userName).isPresent()){
+			throw new DuplicationException("Esse nome de usuário já existe!");
+		}
+		
+		return repository.save(user);
 	}
+
 	
 	@Transactional
 	public User updateUser(Long id, User user) {
