@@ -33,19 +33,19 @@ public class FavoritesController {
 		return result;
 	}
 	
-	@GetMapping(value = "/{id}")
+	@GetMapping(value = "/findById/{id}")
 	public Favorites getFavoritesById(@PathVariable Long id) {
 		result = service.findById(id);
 		return result;
 	}
 	
-	@PostMapping
+	@PostMapping("/save")
 	public Favorites saveNewFavorites(@Valid @RequestBody Favorites favorites) {
 		 result = service.insertNewObject(favorites);
 		return result;
 	}
 	
-	@PutMapping("/{id}")
+	@PutMapping("/update/{id}")
 	public ResponseEntity<Object> updateFavorites(@PathVariable Long id, @RequestBody Favorites updatedFavorites) {
 		Favorites favorites = service.findById(id);
 		if(favorites == null) {
@@ -66,7 +66,7 @@ public class FavoritesController {
 
 	}
 	
-	@DeleteMapping("/{id}")
+	@DeleteMapping("/delete/{id}")
 	public ResponseEntity<String> deleteFavorites(@PathVariable Long id){
 		boolean deleted = service.deleteFavoritesById(id);
 		if(deleted) {
