@@ -33,19 +33,19 @@ public class AnimesWatchedController {
 		return result;
 	}
 	
-	@GetMapping(value = "/{id}")
+	@GetMapping(value = "/findById/{id}")
 	public AnimesWatched getAnimesWatchedyId(@PathVariable Long id) {
 		AnimesWatched result = service.findById(id);
 		return result;
 	}
 	
-	@PostMapping
+	@PostMapping("/save")
 	public AnimesWatched insertAnimesWatched(@Valid @RequestBody AnimesWatched animesW) {
 		AnimesWatched result = service.insertNewObject(animesW);
 		return result;
 	}
 	
-	@PutMapping("/{id}")
+	@PutMapping("/update/{id}")
 	public ResponseEntity<Object> updateAnimesWatched(@PathVariable Long id, @RequestBody AnimesWatched updatedAnimesW) {
 		AnimesWatched animesW = service.findById(id);
 		if(animesW == null) {
@@ -66,7 +66,7 @@ public class AnimesWatchedController {
 
 	}
 	
-	@DeleteMapping("/{id}")
+	@DeleteMapping("/delete/{id}")
 	public ResponseEntity<String> deleteAnimesWatched(@PathVariable Long id){
 		boolean deleted = service.deleteAnimesWatchedById(id);
 		if(deleted) {
