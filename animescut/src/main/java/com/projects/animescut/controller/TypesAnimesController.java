@@ -16,8 +16,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.projects.animescut.entities.TypesAnimes;
 import com.projects.animescut.services.TypesAnimesService;
-
-import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 
 @RestController
@@ -34,19 +32,19 @@ public class TypesAnimesController {
 		return result;
 	}
 	
-	@GetMapping(value="/{id}")
+	@GetMapping(value="/findById/{id}")
 	public TypesAnimes getTypesById(@PathVariable Long id) {
 		result = service.findById(id);
 		return result;
 	}
 	
-	@PostMapping
+	@PostMapping("/save")
 	public TypesAnimes insertNewTypeAnimes(@RequestBody @Valid TypesAnimes types) {
 		result = service.insertNewObject(types);
 		return result;
 	}
 	
-	@PutMapping("/{id}")
+	@PutMapping("/update/{id}")
 	public ResponseEntity<Object> updateTypes(@PathVariable Long id, @RequestBody TypesAnimes updatedTypes) {
 		//necessário???
 		TypesAnimes typesAnimes = service.findById(id);
@@ -66,7 +64,7 @@ public class TypesAnimesController {
 
 	}
 	
-	@DeleteMapping("/{id}")
+	@DeleteMapping("/delete/{id}")
 	public ResponseEntity<String> deleteTypes(@PathVariable Long id){
 		boolean deleted = service.deleteTypesAnimes(id);
 		if(deleted) {
