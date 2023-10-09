@@ -34,7 +34,7 @@ public class FavoritesService {
 	
 	public Favorites insertNewObject(Favorites favorites) {
 		 if(existsDuplicationFavorites(favorites)) {
-			 throw  new DuplicationException("Esse Favorito já foi salvo anteriormente!");
+			 throw  new DuplicationException("Esse Anime já foi Favoritado por esse Usario anteriormente!");
 		 }
 		return repository.save(favorites);
 	}

@@ -40,8 +40,8 @@ public class TypesAnimesService {
 		if(existsDuplicationTypesAnimes(types)) {
 			throw new DuplicationException("Este Tipo já foi salvo! Tente novamente.");
 		}
-		TypesAnimes result = repository.save(types);
-		return result;
+		
+		return repository.save(types);
 	}
 	
 	protected boolean existsDuplicationTypesAnimes(TypesAnimes ta) {

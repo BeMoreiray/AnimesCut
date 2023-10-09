@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.projects.animescut.entities.AnimesWatched;
+import com.projects.animescut.exceptions.DuplicationException;
 import com.projects.animescut.exceptions.ResourceNotFoundException;
 import com.projects.animescut.repositories.AnimesWatchedRepository;
 
@@ -32,8 +33,15 @@ public class AnimesWatchedService {
 	}
 	
 	public AnimesWatched insertNewObject(AnimesWatched animesW) {
-		AnimesWatched result = repository.save(animesW);
-		return result;
+		if(existsDuplicationAnimesWatched(animesW)) {
+			throw new DuplicationException("Este Anime já foi Assistido por esse usuário anteriormente!");
+		}
+		return repository.save(animesW);
+	}
+	
+	protected boolean existsDuplicationAnimesWatched(AnimesWatched animesW) {
+		Optional<AnimesWatched> existingAnimesW = repository.findByUserAndAnimes(animesW.getUser(),animesW.getAnimes());
+		return existingAnimesW.isPresent();
 	}
 	
 	@Transactional
