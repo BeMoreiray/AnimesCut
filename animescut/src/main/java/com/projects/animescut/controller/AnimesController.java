@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.projects.animescut.entities.Animes;
@@ -38,19 +37,19 @@ public class AnimesController {
 		return result;
 	}
 	
-	@GetMapping(value = "/{id}")
+	@GetMapping(value = "/findById/{id}")
 	public Animes getAnimesById( @PathVariable Long id) {
 		result = service.findById(id);
 		return result;
 	}
 	
-	@PostMapping
-	public Animes insertAnimes(@Valid @RequestBody Animes anime) { 
+	@PostMapping("/save")
+	public Animes saveNewAnime(@Valid @RequestBody Animes anime) { 
 		result = service.insertNewObject(anime);
 		return result;
 	}
 	
-	@PutMapping("/{id}")
+	@PutMapping("/update/{id}")
 	public ResponseEntity<Object> updateAnimes(@PathVariable Long id, @RequestBody Animes updatedAnime) {
 		Animes anime = service.findById(id);
 		if(anime == null) {
@@ -75,7 +74,7 @@ public class AnimesController {
 
 	}
 	
-	@DeleteMapping("/{id}")
+	@DeleteMapping("/delete/{id}")
 	public ResponseEntity<String> deleteAnimes(@PathVariable Long id){
 		boolean deleted = service.deleteAnimesById(id);
 		if(deleted) {
