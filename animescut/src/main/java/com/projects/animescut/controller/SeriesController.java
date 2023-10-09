@@ -33,19 +33,19 @@ public class SeriesController {
 		return result;
 	}
 	
-	@GetMapping(value = "/{id}")
+	@GetMapping(value = "/findById/{id}")
 	public Series getSeriesById(@PathVariable Long id) {
 		Series result = service.findSeriesById(id);
 		return result;
 	}
 	
-	@PostMapping
-	public Series insertSeries(@Valid @RequestBody Series serie) {
+	@PostMapping("/save")
+	public Series saveSeries(@Valid @RequestBody Series serie) {
 		Series result = service.insertNewObject(serie);
 		return result;
 	}
 	
-	@PutMapping("/{id}")
+	@PutMapping("/update/{id}")
 	public ResponseEntity<Object> updateSeries(@PathVariable Long id, @RequestBody Series updatedSeries) {
 		Series serie = service.findSeriesById(id);
 		if(serie == null) {
@@ -67,7 +67,7 @@ public class SeriesController {
 
 	}
 	
-	@DeleteMapping("/{id}")
+	@DeleteMapping("/delete/{id}")
 	public ResponseEntity<String> deleteSeries(@PathVariable Long id){
 		boolean deleted = service.deleteSeriesById(id);
 		if(deleted) {
