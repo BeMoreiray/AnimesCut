@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.projects.animescut.entities.User;
@@ -35,19 +34,19 @@ public class UserController {
 		return result;
 	}
 	
-	@GetMapping(value = "/{id}")
+	@GetMapping(value = "/findById/{id}")
 	public User getUsersById(@PathVariable Long id) {
 		result = service.findUsersById(id);
 		return result;
 	}
 	
-	@PostMapping
+	@PostMapping("/save")
 	public User saveNewUser(@Valid @RequestBody User user) {
 		result = service.insertNewUserObject(user);
 		return result;
 	}
 	
-	@PutMapping("/{id}")
+	@PutMapping("/update/{id}")
 	public ResponseEntity<Object> updateUser(@PathVariable Long id, @RequestBody User userUpdated){
 		User user = service.findUsersById(id);
 		if(user == null) {
@@ -61,14 +60,14 @@ public class UserController {
 		result = service.updateUser(id, user);
 		
 		if(result != null) {
-			return ResponseEntity.ok(result + "usuário atualizado!");
+			return ResponseEntity.ok(result);
 		}else {
 			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("erro ao atualizar usuário! tente novamente.");
 		}
 		
 	}
 	
-	@DeleteMapping("/{id}")
+	@DeleteMapping("/delete/{id}")
 	public ResponseEntity<String> deleteUser(@PathVariable Long id){
 		boolean deleted = service.deleteUserById(id);
 		if(deleted) {
