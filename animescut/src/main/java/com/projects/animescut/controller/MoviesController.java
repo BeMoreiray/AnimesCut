@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.projects.animescut.entities.Movies;
-import com.projects.animescut.entities.Series;
 import com.projects.animescut.services.MoviesService;
 
 import jakarta.validation.Valid;
@@ -33,19 +32,19 @@ public class MoviesController {
 		return result;
 	}
 	
-	@GetMapping(value = "/{id}")
+	@GetMapping(value = "/findById/{id}")
 	public Movies getMoviesById(@PathVariable Long id) {
 		Movies result = service.findMoviesById(id);
 		return result;
 	}
 	
-	@PostMapping
-	public Movies insertMovies(@Valid @RequestBody Movies movie) {
+	@PostMapping("/save")
+	public Movies saveMovies(@Valid @RequestBody Movies movie) {
 		Movies result = service.insertNewObject(movie);
 		return result;
 	}
 	
-	@PutMapping("/{id}")
+	@PutMapping("/update/{id}")
 	public ResponseEntity<Object> updateMovies(@PathVariable Long id, @RequestBody Movies updatedMovie) {
 		Movies movie = service.findMoviesById(id);
 		if(movie == null) {
@@ -67,7 +66,7 @@ public class MoviesController {
 
 	}
 	
-	@DeleteMapping("/{id}")
+	@DeleteMapping("/delete/{id}")
 	public ResponseEntity<String> deleteMovies(@PathVariable Long id){
 		boolean deleted = service.deleteMoviesById(id);
 		if(deleted) {
