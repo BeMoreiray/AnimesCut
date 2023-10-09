@@ -13,6 +13,8 @@ public interface AnimesRepository extends JpaRepository<Animes, Long>{
 	@Query(value = "select a from Animes a where a.title like %?1% ")
 	List<Animes> findAnimesByTitle(String title);
 	
-	Optional<Animes> findByTitleAndLinkAndDescription(String title, String link, String description);
+	Optional<Animes> findByTitle(String title);
+	Optional<Animes> findByLink(String link);
+	Optional<Animes> findByDescription(String description);
  
 }

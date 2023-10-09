@@ -17,8 +17,7 @@ public class TypesAnimes {
 	private Long id;
 	@Column(name="title")
 	@NotBlank(message = "Titulo de tipos obrigatório")
-	private String title_type;
-	
+	private String title;
 	
 	public Long getId() {
 		return id;
@@ -27,10 +26,10 @@ public class TypesAnimes {
 		this.id = id;
 	}
 	public String getTitle() {
-		return title_type;
+		return title;
 	}
 	public void setTitle(String title) {
-		this.title_type = title;
+		this.title = title;
 	}
 	
 	

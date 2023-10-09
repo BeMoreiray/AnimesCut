@@ -40,17 +40,18 @@ public class AnimesService {
 	}
 	/*---------------------------CADASTRAR------------------------------------------*/
 	public Animes insertNewObject(Animes anime) {
-		if(existsDuplicationAnime(anime)) {
-			throw new DuplicationException("Este anime já existe no banco de dados. Tente outro!");
+		String title = anime.getTitle();
+		String link = anime.getLink();
+		String description = anime.getDescription();
+		
+		if(repository.findByTitle(title).isPresent()) {
+			throw new DuplicationException("Esse TITULO de anime já foi salvo anteriormente!");
+		}else if(repository.findByLink(link).isPresent()) {
+			throw new DuplicationException("Esse LINK de anime já foi salvo anteriormente!");
+		}else if(repository.findByDescription(description).isPresent()) {
+			throw new DuplicationException("Essa DESCRIÇÃO de anime já foi salva anteriormente!");
 		}
 		return repository.save(anime);
-	}
-	
-	
-
-	protected boolean existsDuplicationAnime(Animes anime) {
-		Optional<Animes> existingAnime = repository.findByTitleAndLinkAndDescription(anime.getTitle(), anime.getLink(), anime.getDescription());
-		return existingAnime.isPresent();
 	}
 	
 	/*-----------------------------------------------------------------*/

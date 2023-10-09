@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.projects.animescut.entities.Favorites;
+import com.projects.animescut.exceptions.DuplicationException;
 import com.projects.animescut.exceptions.ResourceNotFoundException;
 import com.projects.animescut.repositories.FavoritesRepository;
 
@@ -32,8 +33,15 @@ public class FavoritesService {
 	}
 	
 	public Favorites insertNewObject(Favorites favorites) {
-		Favorites result = repository.save(favorites);
-		return result;
+		 if(existsDuplicationFavorites(favorites)) {
+			 throw  new DuplicationException("Esse Favorito já foi salvo anteriormente!");
+		 }
+		return repository.save(favorites);
+	}
+	
+	protected boolean existsDuplicationFavorites(Favorites fav) {
+		Optional<Favorites> existingFav = repository.findByUserAndAnimes(fav.getUser(),fav.getAnimes());
+		return existingFav.isPresent();
 	}
 	
 	@Transactional
