@@ -26,7 +26,7 @@ public class Animes {
 	@NotNull
 	@Min(value= 1900)
 	private int releaseYear;
-	@Column(columnDefinition = "TEXT")
+	@Column(name= "description_anime", columnDefinition = "TEXT")
 	@NotBlank(message="Descrição obrigatória")
 	private String description;
 	@NotBlank(message="Studio obrigatório")
