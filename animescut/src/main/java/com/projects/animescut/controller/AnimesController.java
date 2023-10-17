@@ -15,9 +15,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.projects.animescut.dto.AnimesDatailsDTO;
 import com.projects.animescut.entities.Animes;
+import com.projects.animescut.entities.Movies;
+import com.projects.animescut.entities.Series;
 import com.projects.animescut.services.AnimesService;
 
+import anime;
 import jakarta.validation.Valid;
 
 
@@ -26,9 +30,12 @@ import jakarta.validation.Valid;
 public class AnimesController {
 	
 	
+	
 	@Autowired 
 	AnimesService service;
 	Animes result;
+	Movies movie;
+	Series serie;
 	
 	 
 	@GetMapping
@@ -94,6 +101,23 @@ public class AnimesController {
 			return ResponseEntity.notFound().build();
 		}
 	}
+	
+	/*@GetMapping("/displayAnimesDatails/{id}")
+	public AnimesDatailsDTO getAnimeDatails(@PathVariable Long id) {
+		Animes anime = service.findById(id);
+		
+		AnimesDatailsDTO dto = new AnimesDatailsDTO();
+		dto.setTitle(anime.getTitle());
+		dto.setLink(anime.getLink());
+		dto.setReleaseYear(anime.getReleaseYear());
+		dto.setDescription(anime.getDescription());
+		dto.setStudio(anime.getStudio());
+		dto.setCreator(anime.getCreator());
+		
+		if()
+		
+		
+	}*/
 	
 	
 	
