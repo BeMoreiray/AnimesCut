@@ -1,0 +1,23 @@
+package com.projects.animescut.services;
+
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.projects.animescut.repositories.GenericRepository;
+
+@Service
+public abstract class GenericService<T, ID> {
+	
+	@Autowired
+	private GenericRepository<T, ID> repository;
+	
+	protected boolean hasDuplication(String entity) {
+		Optional<T> existingEntity = repository.findByDuplicateFild(getDupiclateObjectValue(entity));
+		return existingEntity.isPresent();
+		
+		
+	}
+	protected abstract String getDupiclateObjectValue(T entity);
+}
