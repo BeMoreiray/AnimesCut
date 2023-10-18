@@ -104,17 +104,7 @@ public class AnimesController {
 	
 	/*@GetMapping("/displayAnimesDatails/{id}")
 	public AnimesDatailsDTO getAnimeDatails(@PathVariable Long id) {
-		Animes anime = service.findById(id);
 		
-		AnimesDatailsDTO dto = new AnimesDatailsDTO();
-		dto.setTitle(anime.getTitle());
-		dto.setLink(anime.getLink());
-		dto.setReleaseYear(anime.getReleaseYear());
-		dto.setDescription(anime.getDescription());
-		dto.setStudio(anime.getStudio());
-		dto.setCreator(anime.getCreator());
-		
-		if()
 		
 		
 	}*/

@@ -5,6 +5,8 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import com.projects.animescut.entities.Animes;
 import com.projects.animescut.entities.Series;
 import com.projects.animescut.exceptions.DuplicationException;
 import com.projects.animescut.exceptions.ResourceNotFoundException;
@@ -71,5 +73,7 @@ public class SeriesService {
 		
 	}
 	
-	
+	public Series getSeriesByAnimes(Animes anime) {
+		return repository.findByAnimes1(anime);
+	}
 }
