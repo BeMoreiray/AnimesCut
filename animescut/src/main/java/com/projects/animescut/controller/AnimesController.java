@@ -20,8 +20,9 @@ import com.projects.animescut.entities.Animes;
 import com.projects.animescut.entities.Movies;
 import com.projects.animescut.entities.Series;
 import com.projects.animescut.services.AnimesService;
+import com.projects.animescut.services.MoviesService;
+import com.projects.animescut.services.SeriesService;
 
-import anime;
 import jakarta.validation.Valid;
 
 
@@ -32,11 +33,12 @@ public class AnimesController {
 	
 	
 	@Autowired 
-	AnimesService service;
-	Animes result;
-	Movies movie;
-	Series serie;
-	
+	AnimesService service = new AnimesService();
+	Animes result = new Animes();
+	Movies movie = new Movies();
+	Series serie = new Series();
+	MoviesService mService = new MoviesService();
+	SeriesService sService = new SeriesService();
 	 
 	@GetMapping
 	public List<Animes> getAllAnimes(){
@@ -102,12 +104,32 @@ public class AnimesController {
 		}
 	}
 	
-	/*@GetMapping("/displayAnimesDatails/{id}")
+	@GetMapping("/displayAnimesDatails/{id}")
 	public AnimesDatailsDTO getAnimeDatails(@PathVariable Long id) {
+		result = service.findById(id);
 		
+		AnimesDatailsDTO dto = new AnimesDatailsDTO();
+		if(result != null) {
+			dto.setTitle(result.getTitle());
+			dto.setLink(result.getLink());
+			dto.setDescription(result.getDescription());
+			dto.setReleaseYear(result.getReleaseYear());
+			dto.setStudio(result.getStudio());
+			dto.setCreator(result.getCreator());
 		
-		
-	}*/
+			movie = mService.getMoviesByAnimes(result);
+			if(movie != null) {
+				dto.setDuarationMin(movie.getDuarationMin());
+			}
+			serie = sService.getSeriesByAnimes(result);
+			if(serie != null) {
+				dto.setNumberEpisodes(serie.getNumberEpisodes());
+				dto.setNumberSeasons(serie.getNumberSeasons());
+			}
+			
+		}
+		return dto;
+	}
 	
 	
 	

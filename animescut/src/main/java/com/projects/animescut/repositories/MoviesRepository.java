@@ -9,7 +9,7 @@ import com.projects.animescut.entities.Animes;
 import com.projects.animescut.entities.Movies;
 
 public interface MoviesRepository extends JpaRepository<Movies, Long> {
-	@Query("select m from Movies m where m.animes_id = :animes")
+	@Query("select m from Movies m where m.animes = :animes")
 	Movies findByAnimes1(Animes animes);
 	
 	Optional<Movies> findByAnimes(Animes animes);
