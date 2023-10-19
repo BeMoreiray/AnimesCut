@@ -1,4 +1,24 @@
-.example-spacer {
+*{
   flex: 1 1 auto;
+}
+
+.mat-toolbar span {
+  font-weight: bold;
+}
+
+.custom-title::before {
+  content: "Animes";
+  color: blue;
+}
+
+.custom-title::after {
+  content: "Cut";
+  color: yellow;
+}
+.custom-title{
+font-family: 'Tilt Prism', sans-serif;
+font-size: 24px;
+font-weight: bold;
+color: #007bff;
 }
 
