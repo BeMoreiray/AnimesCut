@@ -3,10 +3,9 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatToolbarModule} from '@angular/material/toolbar';
-import { MatIconModule } from '@angular/material/icon';
-import {MatMenuModule} from '@angular/material/menu';
-import {MatSelectModule} from '@angular/material/select';
+
+import { AppRoutingModule } from './app-routing.module';
+
 
 @NgModule({
   declarations: [
@@ -15,10 +14,7 @@ import {MatSelectModule} from '@angular/material/select';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    MatToolbarModule,
-    MatIconModule,
-    MatMenuModule,
-    MatSelectModule
+    AppRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
