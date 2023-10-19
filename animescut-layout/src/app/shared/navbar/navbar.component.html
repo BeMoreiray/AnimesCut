@@ -3,9 +3,24 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Tilt+Prism&family=Tilt+Warp&display=swap" rel="stylesheet">
 </head>
-<p>
+
+<div>
   <mat-toolbar>
     <span class="custom-title"></span>
+    <div class="flex-container">
+      <span class="flex-spacer"></span>
+      <mat-form-field>
+        <mat-label>Select an option</mat-label>
+        <mat-select>
+          <mat-option>None</mat-option>
+          <mat-option value="option1">Option 1</mat-option>
+          <mat-option value="option2">Option 2</mat-option>
+          <mat-option value="option3">Option 3</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <button mat-flat-button color="accent" class="custom-button">Login</button>
+      <button mat-flat-button color="warn" class="custom-button">Cadastre-se</button>
+    </div>
   </mat-toolbar>
-</p>
 
+</div>
