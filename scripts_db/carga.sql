@@ -38,5 +38,8 @@ insert into tb_animes_watched(animes_id, user_id) values (3,3);
 
 select * from tb_movies;
 select * from tb_series;
-select * from tb_typesAnimes;
+select * from tb_types_animes;
 select * from tb_animes;
+select * from tb_user;
+select * from tb_favorites;
+select * from tb_animes_watched;

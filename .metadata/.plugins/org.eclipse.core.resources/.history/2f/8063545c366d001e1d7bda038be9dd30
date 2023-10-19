@@ -1,0 +1,17 @@
+package com.projects.animescut.dto;
+
+public class AnimesDatailsDTO {
+	    private String title;
+	    private String link;
+	    private Integer releaseYear;
+	    private String description;
+	    private String studio;
+	    private String creator;
+	    private Integer duarationMin; // Duração em minutos (para filmes)
+	    private Integer numberSeasons;      // Número de temporadas (para séries)
+	    private Integer numberEpisodes;     // Número de episódios (para séries)
+	    
+	    
+	    
+} 
+

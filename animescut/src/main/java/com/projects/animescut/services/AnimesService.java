@@ -40,6 +40,11 @@ public class AnimesService {
 	}
 	/*---------------------------CADASTRAR------------------------------------------*/
 	public Animes insertNewObject(Animes anime) {
+		checkDuplication(anime);
+		return repository.save(anime);
+	}
+	
+	private void checkDuplication(Animes anime) {
 		String title = anime.getTitle();
 		String link = anime.getLink();
 		String description = anime.getDescription();
@@ -51,13 +56,13 @@ public class AnimesService {
 		}else if(repository.findByDescription(description).isPresent()) {
 			throw new DuplicationException("Essa DESCRIÇÃO de anime já foi salva anteriormente!");
 		}
-		return repository.save(anime);
 	}
 	
 	/*-----------------------------------------------------------------*/
 	@Transactional
 	public Animes updateAnimes(Long id, Animes anime) {
 		Animes result = repository.findById(id).orElse(null);
+		
 		if(result != null) {
 			result.setTitle(anime.getTitle());
 			result.setLink(anime.getLink());
@@ -89,6 +94,8 @@ public class AnimesService {
 	public List<Animes> seacrhAnimesByTitle(String title){
 		return repository.findAnimesByTitle(title);
 	}
+	
+	
 	
 	
 }
