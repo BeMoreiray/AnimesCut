@@ -1,8 +1,0 @@
-/* Estilize o fundo da página inteira */
-:host {
-  background-color: #333; /* Cor de fundo desejada (cinza escuro) */
-  display: block;
-  min-height: 100vh; /* Garante que a cor de fundo se estenda até a parte inferior da janela de visualização */
-  padding: 0;
-  margin: 0;
-}
